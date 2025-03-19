@@ -1,6 +1,7 @@
 import Image from "next/image";
 import React from "react";
 import { Button } from "../ui/button";
+import { signIn } from "next-auth/react";
 
 const GoogleLogin = () => {
   return (
@@ -11,7 +12,7 @@ const GoogleLogin = () => {
         <div className="flex-1 border-t border-gray-300"></div>
       </div>
 
-      <Button>
+      <Button onClick={() => signIn("google")}>
         <Image
           src="/assets/auth/google.svg"
           width={30}
