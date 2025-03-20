@@ -12,7 +12,13 @@ const GoogleLogin = () => {
         <div className="flex-1 border-t border-gray-300"></div>
       </div>
 
-      <Button onClick={() => signIn("google")}>
+      <Button
+        onClick={() =>
+          signIn("google", {
+            callbackUrl: "http://localhost:3000",
+          })
+        }
+      >
         <Image
           src="/assets/auth/google.svg"
           width={30}

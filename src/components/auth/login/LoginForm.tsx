@@ -3,10 +3,10 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import Link from "next/link";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import GoogleLogin from "../GoogleLogin";
-
+import { getUser } from "@/utils/userInfo";
 type Inputs = {
   email: string;
   password: string;
@@ -19,6 +19,32 @@ const LoginForm = () => {
 
     formState: { errors },
   } = useForm<Inputs>();
+
+  const [user, setUser] = useState<{
+    name?: string | null;
+    email?: string | null;
+    image?: string | null;
+  } | null>(null);
+
+  useEffect(() => {
+    const fetchUser = async () => {
+      try {
+        const userData = await getUser();
+        console.log("Fetched user data:", userData);
+
+        // Ensure compatibility with user being null or undefined
+        setUser(userData || null);
+
+        // If user is logged in and email exists, call the external registration function
+        
+      } catch (error) {
+        console.error("Error fetching or registering user:", error);
+      }
+    };
+
+    fetchUser();
+  }, []);
+  console.log({user})
 
   const onSubmit: SubmitHandler<Inputs> = (data) => {
     console.log(data);
