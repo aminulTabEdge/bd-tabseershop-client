@@ -9,7 +9,7 @@ const HomePage = () => {
       <HeroSlider />
       <ServicesInfo />
       <Products />
-      <div className="fixed right-14 top-1/2 -translate-y-1/2 z-50">
+      <div className="fixed right-12 top-1/2 -translate-y-1/2 z-50">
         <AddToCart />
       </div>
     </div>

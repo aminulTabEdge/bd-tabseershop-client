@@ -15,10 +15,11 @@ const Navbar2 = () => {
         <div>
           <Link href="/">
             <Image
-              src="/shwapno_logo.png"
-              width={100}
+              src="/logo.svg"
+              width={120}
               height={40}
               alt="Tabseershop logo"
+              className="py-1"
             />
           </Link>
         </div>

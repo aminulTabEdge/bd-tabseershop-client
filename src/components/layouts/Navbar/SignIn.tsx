@@ -32,15 +32,15 @@ const SignIn = () => {
               {/* Centered Logo */}
               <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
                 <Image
-                  src="/logo_circle.svg"
+                  src="/assets/logos/logo-circle.svg"
                   alt="logo circle"
-                  height={80}
-                  width={80}
+                  height={110}
+                  width={110}
                 />
               </div>
 
               {/* Title */}
-              <AlertDialogTitle className="text-center mt-8">
+              <AlertDialogTitle className="text-center mt-12">
                 Sign in to get the best online experience
               </AlertDialogTitle>
             </AlertDialogHeader>
