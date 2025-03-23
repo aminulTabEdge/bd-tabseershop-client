@@ -3,8 +3,8 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { Button } from "@/components/ui/button";
-import { Menu } from "lucide-react";
+
+import { Menu, ShoppingCart, User } from "lucide-react";
 
 const menuItems = [
   { name: "Home", path: "/" },
@@ -45,9 +45,17 @@ const ResponsiveNavbar = () => {
       </ul>
 
       {/* Account Button */}
-      <Link href="https://portal.tabedge.com">
-        <Button>Account</Button>
-      </Link>
+      <div className="space-x-4">
+        <Link href="https://portal.tabedge.com">
+          <button className="hover:cursor-pointer">
+            <User size={30} />
+          </button>
+        </Link>
+
+        <button>
+          <ShoppingCart size={30} />
+        </button>
+      </div>
 
       {/* Mobile Menu Toggle */}
       <Menu
@@ -78,8 +86,10 @@ const ResponsiveNavbar = () => {
           ))}
 
           <li className="hover:text-blue-500 transition cursor-pointer">
-            <Link href="https://portal.tabedge.com/login">
-              <Button>Account</Button>
+            <Link href="http://localhost:5000/login">
+              <button>
+                <User />
+              </button>
             </Link>
           </li>
         </ul>

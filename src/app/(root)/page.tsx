@@ -1,11 +1,17 @@
-import HeroBanner from "@/components/Home/HeroBanner";
+import AddToCart from "@/components/Cart/AddToCart";
+import HeroSlider from "@/components/Home/HeroSlider";
+import Products from "@/components/Home/products/Products";
+import ServicesInfo from "@/components/Home/ServicesInfo";
 
 const HomePage = () => {
   return (
     <div>
-      <HeroBanner />
-      
-      
+      <HeroSlider />
+      <ServicesInfo />
+      <Products />
+      <div className="fixed right-14 top-1/2 -translate-y-1/2 z-50">
+        <AddToCart />
+      </div>
     </div>
   );
 };

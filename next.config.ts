@@ -1,4 +1,3 @@
-// next.config.ts
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
@@ -6,7 +5,7 @@ const nextConfig: NextConfig = {
     remotePatterns: [
       {
         protocol: "https",
-        hostname: "i.ibb.co", // Allows images from i.ibb.co
+        hostname: "d2t8nl1y0ie1km.cloudfront.net", // Corrected hostname
       },
     ],
   },
