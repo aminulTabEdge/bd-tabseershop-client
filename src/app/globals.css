@@ -132,3 +132,7 @@
   background-color: #133e87;
 }
 
+html {
+  overflow-y: scroll;
+  /* overflow: hidden; */
+}

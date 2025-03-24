@@ -1,4 +1,4 @@
-import MensItems from "@/components/Mens/MensItems";
+import MenProducts from "@/components/products/MenProducts";
 import SectionBanner from "@/components/ui/SectionBanner";
 
 const MenPage = async () => {
@@ -7,10 +7,10 @@ const MenPage = async () => {
     <>
       <SectionBanner
         className="text-white"
-        heading="Mens"
         backgroundImagePath={bg}
+        heading="Mens"
       />
-      <MensItems />
+      <MenProducts />
     </>
   );
 };

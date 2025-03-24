@@ -2,6 +2,7 @@
 "use client";
 import React, { useState } from "react";
 import { Menu } from "lucide-react";
+import Link from "next/link";
 
 const DropDownMenu = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -26,13 +27,13 @@ const DropDownMenu = () => {
               <div className="absolute  left-0 top-full w-48 bg-white shadow-lg rounded-md border border-gray-200 z-10">
                 <ul className="py-2 text-gray-700">
                   <li className="px-4 py-2 hover:bg-gray-100 cursor-pointer">
-                    Men's
+                    <Link href={"/mens"}> Men's</Link>
                   </li>
                   <li className="px-4 py-2 hover:bg-gray-100 cursor-pointer">
-                    Women's
+                    <Link href={"/women"}> Women</Link>
                   </li>
                   <li className="px-4 py-2 hover:bg-gray-100 cursor-pointer">
-                    Organic
+                    <Link href={"/organic"}> Organic</Link>
                   </li>
                 </ul>
               </div>

@@ -7,7 +7,7 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
-const Products = () => {
+const DemoProducts = () => {
   return (
     <Container container="container">
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-6 gap-4">
@@ -16,7 +16,7 @@ const Products = () => {
             key={product._id}
             className="flex flex-col justify-between h-full"
           >
-            <Link href="/">
+            <Link href="/product-details/67e0ed19708b78fefca9bb29">
               <Image
                 src={product.images[0]}
                 alt={product.name}
@@ -46,4 +46,4 @@ const Products = () => {
   );
 };
 
-export default Products;
+export default DemoProducts;

@@ -1,7 +1,5 @@
-import React from "react";
-
 type SectionBannerProps = {
-  heading: string;
+  heading?: string;
   description?: string;
   className?: string;
   backgroundImagePath: string;

@@ -1,13 +1,13 @@
 import {
   Sheet,
   SheetContent,
-  SheetDescription,
   SheetHeader,
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
 import { ShoppingCart } from "lucide-react";
 import Image from "next/image";
+import CartDescription from "./CartDescription";
 
 const AddToCart = () => {
   return (
@@ -39,10 +39,9 @@ const AddToCart = () => {
           <SheetTitle className="flex items-center gap-2">
             <ShoppingCart /> 0 items
           </SheetTitle>
-          <SheetDescription>
-            This action cannot be undone. This will permanently delete your
-            account and remove your data from our servers.
-          </SheetDescription>
+
+         
+          <CartDescription />
         </SheetHeader>
       </SheetContent>
     </Sheet>
