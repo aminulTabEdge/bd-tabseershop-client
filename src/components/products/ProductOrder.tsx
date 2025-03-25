@@ -11,20 +11,17 @@ import {
   AlertDialogTitle,
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
-import { User, X } from "lucide-react";
+import { X } from "lucide-react";
 import Image from "next/image";
-import GoogleLogin from "@/components/auth/GoogleLogin";
+import { Input } from "../ui/input";
 
-const SignIn = () => {
+const ProductOrder = () => {
   return (
     <div>
       <div className="flex space-x-4">
         <AlertDialog>
           <AlertDialogTrigger asChild>
-            <Button variant="outline" className="text-white">
-              <User size={30} />
-              <span className="hidden lg:block">Sign In / Signup</span>
-            </Button>
+            <Button className="w-full ">Order</Button>
           </AlertDialogTrigger>
 
           <AlertDialogContent>
@@ -41,39 +38,19 @@ const SignIn = () => {
 
               {/* Title */}
               <AlertDialogTitle className="text-center mt-12">
-                Sign in to get the best online experience
+                Give Your Information that you can order
               </AlertDialogTitle>
             </AlertDialogHeader>
 
             {/* Description and Input Section */}
-            <div className="space-y-4 ">
+            <div className="space-y-6 ">
               <AlertDialogDescription></AlertDialogDescription>
 
-              <div className="flex items-center border rounded-lg overflow-hidden w-full max-w-md">
-                {/* Country Flag */}
-                <div className="flex items-center px-3 border-r bg-gray-100">
-                  <Image
-                    src="/assets/logos/bg-flag.svg"
-                    alt="Bangladesh Flag"
-                    width={24}
-                    height={16}
-                    className="w-6 h-auto"
-                  />
-                  <span className="ml-2 text-gray-700">+880</span>
-                </div>
-
-                {/* Phone Number Input */}
-                <input
-                  type="tel"
-                  placeholder="1XXXXXXXXX"
-                  className="w-full p-3 focus:outline-none"
-                />
-              </div>
-
-              {/* Login Button */}
-              <Button className="w-full">Login</Button>
-              <p className="text-center">or, sign in with</p>
-              <GoogleLogin />
+              <Input placeholder="Your Name" />
+              <Input placeholder="Delivery Address" />
+              <Input placeholder="Email" />
+              <Input placeholder="Phone Number" />
+              <Button className="w-full">Place Order </Button>
             </div>
 
             <AlertDialogFooter>
@@ -88,4 +65,4 @@ const SignIn = () => {
   );
 };
 
-export default SignIn;
+export default ProductOrder;

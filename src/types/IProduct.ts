@@ -2,6 +2,7 @@ export interface IProduct {
   _id: string;
   name: string;
   description: string;
+  menu: string;
   category: string;
   price: number;
   quantity: number;

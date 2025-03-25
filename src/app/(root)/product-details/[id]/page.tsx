@@ -2,10 +2,9 @@ import fetchProductById from "@/utils/fetchProductById";
 import { IProduct } from "@/types/IProduct";
 import Image from "next/image";
 import Container from "@/components/ui/Container";
-import { Button } from "@/components/ui/button";
-import { ShoppingCart } from "lucide-react";
 import NoProductFound from "@/components/common/NoProductFound";
 import SimilarProduct from "@/components/products/SimilarProduct";
+import AddToCartButton from "@/components/common/AddToCartButton";
 
 const ProductDetails = async ({ params }: { params: { id: string } }) => {
   const { id } = params;
@@ -17,7 +16,7 @@ const ProductDetails = async ({ params }: { params: { id: string } }) => {
   if (!product) {
     return <NoProductFound />;
   }
-  const {  name, description, price, images, category } = product;
+  const { name, description, price, images, category } = product;
   console.log("Product fetched:", product);
 
   return (
@@ -39,9 +38,8 @@ const ProductDetails = async ({ params }: { params: { id: string } }) => {
           <h1 className="text-2xl font-bold">{name}</h1>
           <p className="text-gray-600">{description}</p>
           <p className="text-lg font-semibold">Price: ${price}</p>
-          <Button className="mt-auto flex items-center gap-2 w-40">
-            <ShoppingCart /> Add to cart
-          </Button>
+          {/* Add to cart button */}
+          <AddToCartButton productId={id} quantity={1} />
         </div>
         <div>
           <Image

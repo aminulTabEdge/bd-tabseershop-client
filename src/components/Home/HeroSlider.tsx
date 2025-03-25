@@ -9,7 +9,7 @@ import { Pagination, Navigation, Autoplay } from "swiper/modules";
 import Image from "next/image";
 
 const images = [
-  "/assets/banner/banner.png",
+  "/assets/banner/banner1.png",
   "/assets/banner/banner2.jpeg",
   "/assets/banner/banner-3.webp",
 ];

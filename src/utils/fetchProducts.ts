@@ -1,24 +1,38 @@
 import { IProduct } from "@/types/IProduct";
 
 export type TQueriesProduct = {
-  category: string;
+  menu?: string;
+  category?: string;
   minPrice?: number;
   maxPrice?: number;
   page?: number;
   limit?: number;
 };
 
+interface IApiResponse {
+  success: boolean;
+  statusCode: number;
+  message: string;
+  data: IProduct[];
+}
+
 const fetchProducts = async ({
+  menu,
   category,
   minPrice,
   maxPrice,
   page,
   limit,
-}: TQueriesProduct): Promise<{ data: IProduct[] } | null> => {
+}: TQueriesProduct): Promise<IApiResponse | null> => {
   try {
+    if (!menu) {
+      throw new Error("Menu parameter is required");
+    }
+
     // Construct query parameters dynamically, removing undefined values
     const queryParams = new URLSearchParams({
-      category: category.toLowerCase(),
+      menu: menu.toLowerCase(), // Ensured `menu` is always present
+      ...(category && { category: category.toLowerCase() }),
       ...(minPrice !== undefined && { minPrice: minPrice.toString() }),
       ...(maxPrice !== undefined && { maxPrice: maxPrice.toString() }),
       ...(page !== undefined && { page: page.toString() }),
@@ -34,8 +48,9 @@ const fetchProducts = async ({
     if (!res.ok) {
       throw new Error(`Failed to fetch products: ${res.status}`);
     }
-    const data = await res.json();
-    return data?.data ? data : null; // Ensure it returns only `data` if it exists
+
+    const data: IApiResponse = await res.json();
+    return data?.success ? data : null; // Ensure it returns the whole API response if successful
   } catch (error) {
     console.error("Error fetching products:", error);
     return null; // Return null if an error occurs

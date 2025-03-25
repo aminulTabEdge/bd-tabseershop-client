@@ -11,22 +11,22 @@ type ServiceType = {
 
 const services: ServiceType[] = [
   {
-    imageUrl: "/assets/logos/delivery.png",
+    imageUrl: "/assets/logos/delivery.svg",
     title: "60 mins delivery",
     service: "Free shipping over 1000Tk",
   },
   {
-    imageUrl: "/assets/logos/authorize.png",
+    imageUrl: "/assets/logos/administrator.svg",
     title: "Authorized Products",
     service: "within 30 days for an exchange",
   },
   {
-    imageUrl: "/assets/logos/customer-support.png",
+    imageUrl: "/assets/logos/headphone.svg",
     title: "Customer Service Support",
     service: "9am to 9pm",
   },
   {
-    imageUrl: "/assets/logos/flexible-payment.png",
+    imageUrl: "/assets/logos/payment.svg",
     title: "Flexible Payments",
     service: "Pay with multiple credit cards",
   },

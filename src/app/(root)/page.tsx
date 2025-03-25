@@ -1,7 +1,6 @@
 import AddToCart from "@/components/Cart/AddToCart";
 import HeroSlider from "@/components/Home/HeroSlider";
 import ServicesInfo from "@/components/Home/ServicesInfo";
-import DemoProducts from "@/components/products/DemoProducts";
 import MenProducts from "@/components/products/MenProducts";
 import OrganicProducts from "@/components/products/OrganicProducts";
 import WomenProduct from "@/components/products/WomenProduct";
@@ -12,7 +11,7 @@ const HomePage = () => {
     <div>
       <HeroSlider />
       <ServicesInfo />
-      <DemoProducts />
+      {/* <DemoProducts /> */}
       <Title title="Mens Items" />
       <MenProducts />
       <Title title="Women Items" />

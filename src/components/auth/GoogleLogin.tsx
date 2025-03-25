@@ -13,6 +13,7 @@ const GoogleLogin = () => {
       </div>
 
       <Button
+        className="w-full"
         onClick={() =>
           signIn("google", {
             callbackUrl: "http://localhost:3000",

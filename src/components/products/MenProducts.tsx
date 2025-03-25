@@ -5,7 +5,7 @@ import Container from "../ui/Container";
 import ProductCard from "../common/ProductCard";
 
 const MenProducts = async () => {
-  const products = await fetchProducts({ category: "men" });
+  const products = await fetchProducts({ menu: "men" });
   console.log(products);
 
   // If there is no product then show it

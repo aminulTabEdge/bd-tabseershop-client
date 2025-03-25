@@ -1,9 +1,8 @@
-import { ShoppingCart } from "lucide-react";
-import { Button } from "../ui/button";
 import { Card } from "@/components/ui/card";
 import Image from "next/image";
 import Link from "next/link";
 import { IProduct } from "@/types/IProduct";
+import AddToCartButton from "./AddToCartButton";
 
 type ProductsType = {
   data: IProduct[];
@@ -41,9 +40,8 @@ const ProductCard: React.FC<ProductCardProps> = ({ products }) => {
               {product.price}
             </p>
           </div>
-          <Button className="mt-auto flex items-center gap-2">
-            <ShoppingCart /> Add to cart
-          </Button>
+          {/* Add to cart button */}
+          <AddToCartButton productId={product._id} quantity={1} />
         </Card>
       ))}
     </div>
