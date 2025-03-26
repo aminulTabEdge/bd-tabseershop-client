@@ -10,8 +10,10 @@ import Image from "next/image";
 
 const images = [
   "/assets/banner/banner1.png",
-  "/assets/banner/banner2.jpeg",
+  "/assets/banner/banner2.jpg",
   "/assets/banner/banner-3.webp",
+  "/assets/banner/banner-4.webp",
+  "/assets/banner/banner.png",
 ];
 
 export default function HeroSlider() {
