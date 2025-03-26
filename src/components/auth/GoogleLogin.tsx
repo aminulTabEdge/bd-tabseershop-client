@@ -1,9 +1,10 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import Image from "next/image";
 import React from "react";
 import { Button } from "../ui/button";
 import { signIn } from "next-auth/react";
 
-const GoogleLogin = () => {
+const GoogleLogin = ({googleLoading}:any) => {
   return (
     <div>
       <div className="flex items-center my-4">
@@ -16,7 +17,7 @@ const GoogleLogin = () => {
         className="w-full"
         onClick={() =>
           signIn("google", {
-            callbackUrl: "http://localhost:3000",
+            callbackUrl: "/",
           })
         }
       >
@@ -27,7 +28,7 @@ const GoogleLogin = () => {
           priority
           alt="Login with google tabseershop bd"
         />
-        Google Login
+        {googleLoading ? "Processing..." : "Google Login"}
       </Button>
     </div>
   );

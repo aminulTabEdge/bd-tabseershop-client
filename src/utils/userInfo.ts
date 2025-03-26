@@ -1,7 +1,7 @@
 "use server";
 
-import { authOptions } from "@/app/(auth)/api/auth/[...nextauth]/route";
 import { getServerSession } from "next-auth";
+import { authOptions } from "./authOptions";
 
 export const getUser = async () => {
   const session = await getServerSession(authOptions);

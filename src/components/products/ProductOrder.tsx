@@ -16,6 +16,7 @@ import { X } from "lucide-react";
 import Image from "next/image";
 import { Input } from "../ui/input";
 import { Textarea } from "../ui/textarea";
+import { getUserInfo } from "@/services/authServices";
 
 type Inputs = {
   name: string;
@@ -30,6 +31,9 @@ const ProductOrder = () => {
     handleSubmit,
     formState: { errors },
   } = useForm<Inputs>();
+
+  const userInfo = getUserInfo()
+  console.log({userInfo})
 
   const onSubmit: SubmitHandler<Inputs> = (data) => {
     console.log("Form Submitted:", data);
