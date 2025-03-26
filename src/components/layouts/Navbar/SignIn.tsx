@@ -5,7 +5,6 @@ import {
   AlertDialog,
   AlertDialogCancel,
   AlertDialogContent,
-  AlertDialogDescription,
   AlertDialogFooter,
   AlertDialogHeader,
   AlertDialogTitle,
@@ -14,8 +13,47 @@ import {
 import { User, X } from "lucide-react";
 import Image from "next/image";
 import GoogleLogin from "@/components/auth/GoogleLogin";
+import { getUser } from "@/utils/userInfo";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 const SignIn = () => {
+  const [user, setUser] = useState<{
+    name?: string | null;
+    email?: string | null;
+    image?: string | null;
+  } | null>(null);
+  const [phone, setPhone] = useState("");
+
+  useEffect(() => {
+    const fetchUser = async () => {
+      try {
+        const userData = await getUser();
+        setUser(userData || null);
+      } catch (error) {
+        console.error("Error fetching user:", error);
+      }
+    };
+
+    fetchUser();
+  }, []);
+
+  const handleSignUp = async () => {
+    const apiUrl = `${process.env.NEXT_PUBLIC_API_URL}api/v1/auth/signup`;
+    const body = user?.email
+      ? { name: user.name, email: user.email, image: user.image }
+      : { phone };
+
+    try {
+      const { data } = await axios.post(apiUrl, body, {
+        headers: { "Content-Type": "application/json" },
+      });
+      console.log("Signup response:", data);
+    } catch (error) {
+      console.error("Signup error:", error);
+    }
+  };
+
   return (
     <div>
       <div className="flex space-x-4">
@@ -29,7 +67,6 @@ const SignIn = () => {
 
           <AlertDialogContent>
             <AlertDialogHeader>
-              {/* Centered Logo */}
               <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
                 <Image
                   src="/assets/logos/logo-circle.svg"
@@ -38,19 +75,13 @@ const SignIn = () => {
                   width={110}
                 />
               </div>
-
-              {/* Title */}
               <AlertDialogTitle className="text-center mt-12">
                 Sign in to get the best online experience
               </AlertDialogTitle>
             </AlertDialogHeader>
 
-            {/* Description and Input Section */}
-            <div className="space-y-4 ">
-              <AlertDialogDescription></AlertDialogDescription>
-
+            <div className="space-y-4">
               <div className="flex items-center border rounded-lg overflow-hidden w-full max-w-md">
-                {/* Country Flag */}
                 <div className="flex items-center px-3 border-r bg-gray-100">
                   <Image
                     src="/assets/logos/bg-flag.svg"
@@ -61,17 +92,18 @@ const SignIn = () => {
                   />
                   <span className="ml-2 text-gray-700">+880</span>
                 </div>
-
-                {/* Phone Number Input */}
                 <input
                   type="tel"
                   placeholder="1XXXXXXXXX"
                   className="w-full p-3 focus:outline-none"
+                  value={phone}
+                  onChange={(e) => setPhone(e.target.value)}
                 />
               </div>
 
-              {/* Login Button */}
-              <Button className="w-full">Login</Button>
+              <Button className="w-full" onClick={handleSignUp}>
+                Login
+              </Button>
               <p className="text-center">or, sign in with</p>
               <GoogleLogin />
             </div>

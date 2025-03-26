@@ -17,7 +17,7 @@ const Toaster = ({ ...props }: ToasterProps) => {
           "--normal-border": "none",
         } as React.CSSProperties
       }
-      {...props}
+      {...props} 
     />
   );
 };
